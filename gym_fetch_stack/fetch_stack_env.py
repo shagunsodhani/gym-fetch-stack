@@ -1,6 +1,7 @@
 import os
 
 import numpy as np
+from gym import spaces
 from mujoco_py.generated import const
 
 from gym_fetch_stack import robot_env, rotations, utils
@@ -83,6 +84,15 @@ class FetchStackEnv(robot_env.RobotEnv):
             n_actions=4,
             initial_qpos=initial_qpos,
         )
+
+    
+    def _make_obs_space_dict(self, obs):
+        obs_space_dict = super()._make_obs_space_dict(obs)
+        if self.return_pixel_obs:
+            key = "pixel_observation"
+            obs_space_dict[key] = spaces.Box(-np.inf, np.inf, shape=obs[key].shape, dtype='float32')
+            print(obs[key].shape)
+        return obs_space_dict
 
     # Heatmap Generation
     # ----------------------------
@@ -309,7 +319,8 @@ class FetchStackEnv(robot_env.RobotEnv):
         }
 
         if self.return_pixel_obs:
-            obs["pixel_observation"] = self._get_viewer()._read_pixels_as_in_window()
+            width, height = 256, 256
+            obs["pixel_observation"] = self._get_viewer()._read_pixels_as_in_window((width, height )).transpose(2, 0, 1)
 
         return obs
 

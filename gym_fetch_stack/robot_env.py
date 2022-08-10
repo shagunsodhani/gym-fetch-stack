@@ -1,8 +1,8 @@
-import os
 import copy
-import numpy as np
+import os
 
 import gym
+import numpy as np
 from gym import error, spaces
 from gym.utils import seeding
 
@@ -35,13 +35,16 @@ class RobotEnv(gym.GoalEnv):
         self.initial_state = copy.deepcopy(self.sim.get_state())
 
         self.goal = self._sample_goal()
-        obs = self._get_obs()
         self.action_space = spaces.Box(-1., 1., shape=(n_actions,), dtype='float32')
-        self.observation_space = spaces.Dict(dict(
+        self.observation_space = spaces.Dict(self._make_obs_space_dict(obs = self._get_obs()))
+
+    
+    def _make_obs_space_dict(self, obs):
+        return dict(
             desired_goal=spaces.Box(-np.inf, np.inf, shape=obs['achieved_goal'].shape, dtype='float32'),
             achieved_goal=spaces.Box(-np.inf, np.inf, shape=obs['achieved_goal'].shape, dtype='float32'),
             observation=spaces.Box(-np.inf, np.inf, shape=obs['observation'].shape, dtype='float32'),
-        ))
+        )
 
     @property
     def dt(self):

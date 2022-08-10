@@ -1,10 +1,12 @@
-from gym_fetch_stack import fetch_stack_env
 from gym import utils
+
+from gym_fetch_stack import fetch_stack_env
 
 DISTANCE_THRESHOLD = 0.04
 
 class FetchStack1TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -15,12 +17,13 @@ class FetchStack1TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack1.xml', num_blocks=1, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack2TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -32,12 +35,13 @@ class FetchStack2TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack2.xml', num_blocks=2, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack3TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -50,12 +54,13 @@ class FetchStack3TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack3.xml', num_blocks=3, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack4TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -70,12 +75,13 @@ class FetchStack4TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack4.xml', num_blocks=4, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack5TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -91,12 +97,13 @@ class FetchStack5TrainerOneThirdIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack5.xml', num_blocks=5, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.33,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack5TrainerOneTenthIsStackingEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -112,12 +119,13 @@ class FetchStack5TrainerOneTenthIsStackingEnv(fetch_stack_env.FetchStackEnv, uti
             self, 'fetch/stack5.xml', num_blocks=5, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.1)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.1,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack2TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -129,12 +137,13 @@ class FetchStack2TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack2.xml', num_blocks=2, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack3TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -147,12 +156,13 @@ class FetchStack3TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack3.xml', num_blocks=3, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack4TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -167,12 +177,13 @@ class FetchStack4TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack4.xml', num_blocks=4, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack5TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -188,12 +199,13 @@ class FetchStack5TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack5.xml', num_blocks=5, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack6TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -210,12 +222,13 @@ class FetchStack6TrainerEasyEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack6.xml', num_blocks=6, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0)
+            initial_qpos=initial_qpos, reward_type=reward_type, goals_on_stack_probability=0.0,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack1Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -226,12 +239,13 @@ class FetchStack1Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack1.xml', num_blocks=1, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack2Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -243,12 +257,13 @@ class FetchStack2Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack2.xml', num_blocks=2, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack3Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -261,12 +276,13 @@ class FetchStack3Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack3.xml', num_blocks=3, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack4Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -281,12 +297,13 @@ class FetchStack4Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack4.xml', num_blocks=4, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack5Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -302,12 +319,13 @@ class FetchStack5Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack5.xml', num_blocks=5, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack6Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -324,12 +342,13 @@ class FetchStack6Env(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack6.xml', num_blocks=6, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type)
+            initial_qpos=initial_qpos, reward_type=reward_type,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack2TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental', viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -341,12 +360,13 @@ class FetchStack2TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack2.xml', num_blocks=2, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False)
+            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack3TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -359,12 +379,13 @@ class FetchStack3TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack3.xml', num_blocks=3, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False)
+            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack4TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -379,12 +400,13 @@ class FetchStack4TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack4.xml', num_blocks=4, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.15, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False)
+            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack5TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -400,12 +422,13 @@ class FetchStack5TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack5.xml', num_blocks=5, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False)
+            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
 
 
 class FetchStack6TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
-    def __init__(self, reward_type='incremental'):
+    def __init__(self, reward_type='incremental',viewer_mode: str = "",
+        return_pixel_obs: bool = False,):
         initial_qpos = {
             'robot0:slide0': 0.405,
             'robot0:slide1': 0.48,
@@ -422,5 +445,5 @@ class FetchStack6TestEnv(fetch_stack_env.FetchStackEnv, utils.EzPickle):
             self, 'fetch/stack6.xml', num_blocks=6, block_gripper=False, n_substeps=20,
             gripper_extra_height=0.2, target_in_the_air=False, target_offset=0.0,
             obj_range=0.15, target_range=0.12, distance_threshold=DISTANCE_THRESHOLD,
-            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False)
+            initial_qpos=initial_qpos, reward_type=reward_type, all_goals_always_on_stack=True, allow_blocks_on_stack=False,viewer_mode=viewer_mode,return_pixel_obs=return_pixel_obs)
         utils.EzPickle.__init__(self)
