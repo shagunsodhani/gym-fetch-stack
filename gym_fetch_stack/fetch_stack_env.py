@@ -85,12 +85,13 @@ class FetchStackEnv(robot_env.RobotEnv):
             initial_qpos=initial_qpos,
         )
 
-    
     def _make_obs_space_dict(self, obs):
         obs_space_dict = super()._make_obs_space_dict(obs)
         if self.return_pixel_obs:
             key = "pixel_observation"
-            obs_space_dict[key] = spaces.Box(-np.inf, np.inf, shape=obs[key].shape, dtype='float32')
+            obs_space_dict[key] = spaces.Box(
+                -np.inf, np.inf, shape=obs[key].shape, dtype="float32"
+            )
             print(obs[key].shape)
         return obs_space_dict
 
@@ -320,7 +321,11 @@ class FetchStackEnv(robot_env.RobotEnv):
 
         if self.return_pixel_obs:
             width, height = 256, 256
-            obs["pixel_observation"] = self._get_viewer()._read_pixels_as_in_window((width, height )).transpose(2, 0, 1)
+            obs["pixel_observation"] = (
+                self._get_viewer()
+                ._read_pixels_as_in_window((width, height))
+                .transpose(2, 0, 1)
+            )
 
         return obs
 
