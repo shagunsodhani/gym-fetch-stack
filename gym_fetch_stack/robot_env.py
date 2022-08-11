@@ -1,33 +1,37 @@
-import os
 import copy
-import numpy as np
+import os
 
 import gym
+import numpy as np
 from gym import error, spaces
 from gym.utils import seeding
 
 try:
     import mujoco_py
 except ImportError as e:
-    raise error.DependencyNotInstalled("{}. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)".format(e))
+    raise error.DependencyNotInstalled(
+        "{}. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)".format(
+            e
+        )
+    )
 
 
 class RobotEnv(gym.GoalEnv):
     def __init__(self, model_path, initial_qpos, n_actions, n_substeps):
-        if model_path.startswith('/'):
+        if model_path.startswith("/"):
             fullpath = model_path
         else:
-            fullpath = os.path.join(os.path.dirname(__file__), 'assets', model_path)
+            fullpath = os.path.join(os.path.dirname(__file__), "assets", model_path)
         if not os.path.exists(fullpath):
-            raise IOError('File {} does not exist'.format(fullpath))
+            raise IOError("File {} does not exist".format(fullpath))
 
         model = mujoco_py.load_model_from_path(fullpath)
         self.sim = mujoco_py.MjSim(model, nsubsteps=n_substeps)
         self.viewer = None
 
         self.metadata = {
-            'render.modes': ['human', 'rgb_array'],
-            'video.frames_per_second': int(np.round(1.0 / self.dt))
+            "render.modes": ["human", "rgb_array"],
+            "video.frames_per_second": int(np.round(1.0 / self.dt)),
         }
 
         self.seed()
@@ -35,13 +39,23 @@ class RobotEnv(gym.GoalEnv):
         self.initial_state = copy.deepcopy(self.sim.get_state())
 
         self.goal = self._sample_goal()
-        obs = self._get_obs()
-        self.action_space = spaces.Box(-1., 1., shape=(n_actions,), dtype='float32')
-        self.observation_space = spaces.Dict(dict(
-            desired_goal=spaces.Box(-np.inf, np.inf, shape=obs['achieved_goal'].shape, dtype='float32'),
-            achieved_goal=spaces.Box(-np.inf, np.inf, shape=obs['achieved_goal'].shape, dtype='float32'),
-            observation=spaces.Box(-np.inf, np.inf, shape=obs['observation'].shape, dtype='float32'),
-        ))
+        self.action_space = spaces.Box(-1.0, 1.0, shape=(n_actions,), dtype="float32")
+        self.observation_space = spaces.Dict(
+            self._make_obs_space_dict(obs=self._get_obs())
+        )
+
+    def _make_obs_space_dict(self, obs):
+        return dict(
+            desired_goal=spaces.Box(
+                -np.inf, np.inf, shape=obs["achieved_goal"].shape, dtype="float32"
+            ),
+            achieved_goal=spaces.Box(
+                -np.inf, np.inf, shape=obs["achieved_goal"].shape, dtype="float32"
+            ),
+            observation=spaces.Box(
+                -np.inf, np.inf, shape=obs["observation"].shape, dtype="float32"
+            ),
+        )
 
     @property
     def dt(self):
@@ -64,10 +78,10 @@ class RobotEnv(gym.GoalEnv):
         done = False
 
         info = {
-            'is_success': self._is_success(obs['achieved_goal'], self.goal),
+            "is_success": self._is_success(obs["achieved_goal"], self.goal),
         }
         # info = {}
-        reward = self.compute_reward(obs['achieved_goal'], self.goal, info)
+        reward = self.compute_reward(obs["achieved_goal"], self.goal, info)
         return obs, reward, done, info
 
     def reset(self):
@@ -88,9 +102,9 @@ class RobotEnv(gym.GoalEnv):
             # self.viewer.finish()
             self.viewer = None
 
-    def render(self, mode='human'):
+    def render(self, mode="human"):
         self._render_callback()
-        if mode == 'rgb_array':
+        if mode == "rgb_array":
             self._get_viewer().render()
             # window size used for old mujoco-py:
             width, height = 500, 500
@@ -98,7 +112,7 @@ class RobotEnv(gym.GoalEnv):
             data = self._get_viewer().read_pixels(width, height, depth=False)
             # original image is upside-down, so flip it
             return data[::-1, :, :]
-        elif mode == 'human':
+        elif mode == "human":
             self._get_viewer().render()
 
     def _get_viewer(self):
